@@ -313,3 +313,59 @@ Data summary
 | pups\_born\_alive |          0 |           1.00 |  7.35 | 1.76 |  3.0 |  6.00 |  8.00 |  8.00 | 11.0 | ▁▃▂▇▁ |
 | pups\_dead\_birth |          0 |           1.00 |  0.33 | 0.75 |  0.0 |  0.00 |  0.00 |  0.00 |  4.0 | ▇▂▁▁▁ |
 | pups\_survive     |          0 |           1.00 |  6.41 | 2.05 |  1.0 |  5.00 |  7.00 |  8.00 |  9.0 | ▁▃▂▇▇ |
+
+## arguments in ‘read\_csv’
+
+``` r
+litters_df =
+  read_csv(
+    "data/FAS_litters.csv",
+    skip = 5,
+    col_names = FALSE,
+    na = "Low8")
+```
+
+    ## Rows: 45 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (4): X1, X2, X3, X4
+    ## dbl (4): X5, X6, X7, X8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+## parsing column
+
+``` r
+litters_data = read_csv(file = "./data/FAS_litters.csv",
+  col_types = cols(
+    Group = col_character(),
+    `Litter Number` = col_character(),
+    `GD0 weight` = col_double(),
+    `GD18 weight` = col_double(),
+    `GD of Birth` = col_integer(),
+    `Pups born alive` = col_integer(),
+    `Pups dead @ birth` = col_integer(),
+    `Pups survive` = col_integer()
+  )
+)
+litters_data
+```
+
+    ## # A tibble: 49 × 8
+    ##    Group `Litter Number` `GD0 weight` `GD18 weight` `GD of Birth`
+    ##    <chr> <chr>                  <dbl>         <dbl>         <int>
+    ##  1 Con7  #85                     19.7          34.7            20
+    ##  2 Con7  #1/2/95/2               27            42              19
+    ##  3 Con7  #5/5/3/83/3-3           26            41.4            19
+    ##  4 Con7  #5/4/2/95/2             28.5          44.1            19
+    ##  5 Con7  #4/2/95/3-3             NA            NA              20
+    ##  6 Con7  #2/2/95/3-2             NA            NA              20
+    ##  7 Con7  #1/5/3/83/3-3/2         NA            NA              20
+    ##  8 Con8  #3/83/3-3               NA            NA              20
+    ##  9 Con8  #2/95/3                 NA            NA              20
+    ## 10 Con8  #3/5/2/2/95             28.5          NA              20
+    ## # … with 39 more rows, and 3 more variables: Pups born alive <int>,
+    ## #   Pups dead @ birth <int>, Pups survive <int>

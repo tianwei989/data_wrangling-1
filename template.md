@@ -391,3 +391,19 @@ pulse_df = read_sas("data/public_pulse_data.sas7bdat")
 ```
 
 pulse\_df
+
+## why to never use ‘read.csv’ “read\_csv” always give us a tibble. but ‘read.csv’
+
+don’t which is really bad
+
+``` r
+litter_df_base = read.csv("data/FAS_litters.csv")
+```
+
+## how do I export data
+
+there is a good way!
+
+``` r
+write_csv(fellow_df,"data/fellowship_words.csv")
+```

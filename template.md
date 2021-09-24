@@ -369,3 +369,25 @@ litters_data
     ## 10 Con8  #3/5/2/2/95             28.5          NA              20
     ## # … with 39 more rows, and 3 more variables: Pups born alive <int>,
     ## #   Pups dead @ birth <int>, Pups survive <int>
+
+# reading from excel
+
+reading MLB data
+
+``` r
+mlb11_df = read_excel("data/mlb11.xlsx")
+```
+
+LotR words is next
+
+``` r
+fellow_df = read_excel("data/LotR_Words.xlsx",range = "B3:D6")
+```
+
+## read a SAS file
+
+``` r
+pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+```
+
+pulse\_df
